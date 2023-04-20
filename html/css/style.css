@@ -1,10 +1,64 @@
 * {
+
   color: whitesmoke;
-  background-color: black;
+
+
+}
+
+@keyframes fade {
+  0% {
+    background-color: black;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+
+}
+
+@keyframes description {
+  10% {
+
+    padding-top: 1000px;
+
+  }
+}
+
+@keyframes pfp {
+  0% {
+
+    padding-top: 1000px;
+
+  }
+
+
+}
+
+#particles-js {
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #001020;
+
+
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.fade {
+  animation: fade 2s;
+  position: absolute;
+  width: 10000px;
+  height: 1000px;
+
+  z-index: 2;
 }
 
 body,
 body::after {
+
   overflow: hidden;
   font-family: 'Courier New', Courier, monospace, Helvetica, sans-serif;
   margin: 0;
@@ -20,6 +74,9 @@ html {
 
 
 .left {
+  animation-name: pfp;
+  animation-duration: 4s;
+  z-index: 10;
   display: flex;
   float: left;
   width: 10%;
@@ -28,11 +85,13 @@ html {
 
   float: left;
   width: 30%;
-  padding-left: 1%;
+  padding: 0px;
 
 }
 
 .right {
+  animation-name: description;
+  animation-duration: 4s;
   display: flex;
   float: left;
   width: 10%;
@@ -53,6 +112,7 @@ html {
 
 .container {
 
+  justify-content: center;
   margin-top: 0;
   padding: 0 16px;
   width: 300%;
@@ -69,6 +129,7 @@ html {
 } */
 
 .title {
+
   font-variant: small-caps;
   display: flex;
   justify-content: center;
@@ -78,6 +139,7 @@ html {
 }
 
 .subtitle {
+
   margin: 0;
   font-variant: small-caps;
   display: flex;
@@ -98,8 +160,8 @@ html {
 }
 
 .icons {
-
-
+  z-index: 10;
+  justify-content: center;
   display: flex;
   float: left;
   list-style: none;
@@ -120,7 +182,14 @@ html {
   border-radius: 100%;
   padding: 5px;
   width: 150px;
+  scale: 100%;
+  transition: scale 1s;
+}
 
+.icon:hover {
+
+  scale: 150%;
+  transition: scale 1s;
 }
 
 .description {
@@ -133,16 +202,50 @@ html {
   font-size: 1.8em;
 }
 
+
 .button-container {
+  background-color: transparent;
+  z-index: 10;
+  justify-content: center;
+  display: flex;
+  height: 10%;
+  width: 100%;
+}
+
+.button-background {
+  animation: button-background 4s ease-out;
+  position: fixed;
+
+
+  z-index: 100;
   display: flex;
   justify-content: center;
+  padding: 3px;
+  width: 12em;
+  height: auto;
+  border-radius: 17px;
+  background-color: #001020;
+  padding: 4px;
+  bottom: 20px;
+  pointer-events: none;
+}
+
+@keyframes button-background {
+  0% {
+    bottom: -100px;
+  }
+
+  90% {
+    bottom: -100px;
+  }
+
 
 }
 
 .button {
-  position: absolute;
-  bottom: 10px;
-  color: black;
+  z-index: 100;
+
+  color: #001020;
 
   display: inline-block;
 
@@ -151,32 +254,45 @@ html {
 
   outline: 0;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 14px;
 
   overflow: hidden;
 
-  background-color: #ffffff;
+  background-color: whitesmoke;
   padding: 0.8em 1.35em 0.8em 1.35em;
   font-size: 1.1em;
-  width: 12em;
-  max-width: 12em;
-  border-width: 2px;
 
+  width: 100%;
+  border-width: 0px;
+  justify-content: center;
+  pointer-events: auto;
 
 }
 
+.button-background:hover {
+  z-index: 100;
+  background: linear-gradient(39deg, rgba(255, 0, 0, 1) 0%, rgba(255, 220, 0, 1) 17%, rgba(9, 255, 0, 1) 36%, rgba(0, 236, 255, 1) 53%, rgba(0, 117, 255, 1) 71%, rgba(223, 0, 255, 1) 85%, rgba(255, 0, 0, 1) 100%);
+}
+
+
+
 .button:hover {
-  background-color: black;
+
+
+  background-color: #001020;
   color: whitesmoke;
-  border-color: whitesmoke;
+
+
+
+
 }
 
 
 
 
 .pfp-container {
+  float: left;
   z-index: 10;
-
   display: flex;
   justify-content: center;
   margin-left: 0%;
@@ -189,41 +305,77 @@ html {
 }
 
 .pfp {
-  z-index: 10;
+
   background-color: transparent;
   display: flex;
   justify-content: center;
   margin-left: 0%;
   margin-right: 0;
   margin-top: 30%;
-  width: 100%;
-  height: 100%;
+
   border: 4px solid #ffffff;
   border-radius: 100%;
-
-  width: 420px;
-  height: auto;
+  z-index: 10;
+  aspect-ratio: 1;
 }
 
-@media (80em >=width) {
+
+
+
+
+
+
+@media (90em >=width) {
+
 
 
   .left {
-    background-color: aquamarine;
+
     width: 100%;
 
     margin: 0;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+
+  .subtitle {
+
+    font-size: 2em;
+  }
+
+  .icon-container {
+
+    justify-content: center;
+  }
 
 
 
-
-
-
+  .icon {
+    margin: 0 30px;
+    width: 30px;
   }
 
   .right {
     justify-content: center;
+    width: auto;
+
+
+    padding: 0;
+    height: 1%;
+
   }
+
+  .container {
+    margin: 0;
+
+    height: 110%;
+    width: auto;
+    max-width: 10000px;
+  }
+
+
 
   .title {
 
@@ -231,7 +383,7 @@ html {
   }
 
   .pfp-container {
-    background-color: aqua;
+
     height: fit-content;
     justify-content: center;
     margin: 0;
@@ -239,8 +391,50 @@ html {
   }
 
   .pfp {
-    width: 100px;
+    margin: 0;
+    width: 300px;
     margin-bottom: 0;
+  }
+
+}
+
+@media (66.2em >=width) {
+
+
+  .description {
+    font-size: 1.5em;
+  }
+
+}
+
+@media (51.4em >=width) {
+
+
+  .left {
+    width: 100%;
+
+
+    float: none;
+
+  }
+
+  .pfp-container {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pfp {
+    justify-content: center;
+
+    width: 50%;
+
+
+  }
+
+  .description {
+    font-size: 1.3em;
   }
 
 }
